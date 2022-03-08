@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(context, "My Privacy"),
+      appBar: appBar(context, "My Privacy", true),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
@@ -75,6 +75,7 @@ class _HomeState extends State<Home> {
                 builder: (context, AsyncSnapshot snapshot){
                   if(snapshot.hasData){
                     return Markdown(
+                      selectable:  true,
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
                         data: snapshot.data);

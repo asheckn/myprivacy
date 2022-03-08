@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
@@ -39,7 +41,7 @@ class _EditUserState extends State<EditUser> {
   Widget build(BuildContext context) {
     return LoaderOverlay(
       child: Scaffold(
-          appBar: appBar(context, "Editing: ${widget.user.username}"),
+          appBar: appBar(context, "Editing: ${widget.user.username}", false),
         body: Form(
           key: _formKey,
           child: Column(
@@ -113,6 +115,15 @@ class _EditUserState extends State<EditUser> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    child: Text("DOB"),
+                  )),
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Container(
@@ -137,6 +148,7 @@ class _EditUserState extends State<EditUser> {
                   ),
                 ),
               ),
+              Expanded(child: Container()),
               Container(
                 padding: EdgeInsets.symmetric(vertical: 0, horizontal: 12),
                 width: MediaQuery.of(context).size.width,
@@ -164,6 +176,9 @@ class _EditUserState extends State<EditUser> {
                       }
 
                     }, child: Text("UPDATE", style: TextStyle(color: Colors.white),)),
+              ),
+              SizedBox(
+                height: 30,
               )
 
 

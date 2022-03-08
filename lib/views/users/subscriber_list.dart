@@ -17,7 +17,7 @@ class _SubscribersState extends State<Subscribers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(context, "Subscribers"),
+      appBar: appBar(context, "Subscribers", false),
       body: Column(
         children: [
           Container(
@@ -34,6 +34,10 @@ class _SubscribersState extends State<Subscribers> {
                       itemCount: users.length,
                       itemBuilder: (context, index) {
                         return ListTile(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>EditUser(user: users[index],)));
+                          },
+                          leading: Icon(Icons.person),
                           title: Text("${users[index].firstName} ${users[index].lastName}"),
                           subtitle: Text("${users[index].username!} BASED IN: ${users[index].location!}"),
                           trailing: IconButton(onPressed: (){
