@@ -46,9 +46,6 @@ class _EditUserState extends State<EditUser> {
           key: _formKey,
           child: Column(
             children: [
-              // Container(
-              //   width: MediaQuery.of(context).size.width,
-              //     child: Text("First Name", textAlign: TextAlign.left,)),
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Container(
@@ -63,10 +60,7 @@ class _EditUserState extends State<EditUser> {
                     controller: firstNameController,
                     decoration: InputDecoration(
                       labelText: "First Name",
-                      // border: OutlineInputBorder(
-                      //     borderRadius: inputRadius,
-                      //     borderSide: BorderSide(color: metBlue)
-                      // ),
+
                     ),
                   ),
                 ),
@@ -85,10 +79,6 @@ class _EditUserState extends State<EditUser> {
                     controller: lastNameController,
                     decoration: InputDecoration(
                       labelText: "Last Name",
-                      // border: OutlineInputBorder(
-                      //     borderRadius: inputRadius,
-                      //     borderSide: BorderSide(color: metBlue)
-                      // ),
                     ),
                   ),
                 ),
@@ -107,10 +97,7 @@ class _EditUserState extends State<EditUser> {
                     controller: locationController,
                     decoration: InputDecoration(
                       labelText: "Location",
-                      // border: OutlineInputBorder(
-                      //     borderRadius: inputRadius,
-                      //     borderSide: BorderSide(color: metBlue)
-                      // ),
+
                     ),
                   ),
                 ),
@@ -138,11 +125,12 @@ class _EditUserState extends State<EditUser> {
                     lastDate: DateTime(2025, 7),
                     helpText: 'Date of Birth',
             );
+                      if(newDate != null){
+                        setState(() {
+                          user!.dateOfBirth = newDate;
+                        });
+                      }
 
-            setState(() {
-              // dateController.text = DateFormat(DateFormat.YEAR_MONTH_DAY,).format(newDate!.toUtc());
-                        user!.dateOfBirth = newDate;
-            });
           },
                     title: Text(DateFormat(DateFormat.YEAR_MONTH_DAY,).format(user!.dateOfBirth!)),
                   ),

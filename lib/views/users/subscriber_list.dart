@@ -34,14 +34,20 @@ class _SubscribersState extends State<Subscribers> {
                       itemCount: users.length,
                       itemBuilder: (context, index) {
                         return ListTile(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>EditUser(user: users[index],)));
+                          onTap: () async {
+                            await Navigator.push(context, MaterialPageRoute(builder: (context)=>EditUser(user: users[index],)));
+                            setState(() {
+
+                            });
                           },
                           leading: Icon(Icons.person),
                           title: Text("${users[index].firstName} ${users[index].lastName}"),
                           subtitle: Text("${users[index].username!} BASED IN: ${users[index].location!}"),
-                          trailing: IconButton(onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>EditUser(user: users[index],)));
+                          trailing: IconButton(onPressed: () async{
+                            await Navigator.push(context, MaterialPageRoute(builder: (context)=>EditUser(user: users[index],)));
+                            setState(() {
+
+                            });
                           }, icon: Icon(Icons.edit)),);
                       });
                 }else{
